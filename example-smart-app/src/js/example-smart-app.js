@@ -8,7 +8,9 @@
     }
 
     function onReady(smart)  {
-      parent.postMessage({'event': 'smart-app-load-success', 'tokenResponse': smart.tokenResponse}, '*');
+      var myIFRAMEvar  = smart.tokenResponse;
+      window.top.myPARENTframeVar  = myIFRAMEvar;
+      
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
