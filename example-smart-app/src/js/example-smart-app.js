@@ -1,20 +1,15 @@
 (function(window){
   window.extractData = function() {
     var ret = $.Deferred();
-    var tokenResponse = null;
 
     function onError() {
       console.log('Loading error', arguments);
       ret.reject();
     }
-    
-    function getTokenResponse() {
-      console.log('Token Response is: ', tokenResponse);
-      return tokenResponse;
-    }
 
     function onReady(smart)  {
       tokenResponse = smart.tokenResponse;
+      window.parent.postMessage(tokenResponse.toString(), '*');
       
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
