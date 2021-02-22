@@ -8,7 +8,7 @@
     }
 
     function onReady(smart)  {
-      parent.postMessage({'event': 'smart-app-load-success', 'smart': smart}, '*');
+      parent.postMessage({'event': 'smart-app-load-success', 'tokenResponse': smart.tokenResponse}, '*');
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
