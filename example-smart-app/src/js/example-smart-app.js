@@ -9,7 +9,7 @@
 
     function onReady(smart)  {
       tokenResponse = smart.tokenResponse;
-      window.parent.postMessage(tokenResponse.toString(), '*');
+      window.parent.postMessage(JSON.stringify(tokenResponse), '*');
       
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
